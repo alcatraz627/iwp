@@ -18,9 +18,11 @@ catch(PDOException $e)
     }
 
 // Start the PHP session
+// Note that assigning $_SESSION['val'] variables won't work until this is done.
 session_start();
 
-// Custom functions
+// Redirect function: takes in the url parameter to redirect to 
+// and the error to show as he reason for the redirect, if any
 function redir($url, $err='')
 {
     $_SESSION['err'] = $err;

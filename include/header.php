@@ -33,6 +33,7 @@ require_once('config/db.php');
     </ul>
     <ul class="nav navbar-nav navbar-right">
     <?php
+    // Depending on if the user is logged in
         if(isset($_SESSION['user']))
         {
             echo "<li><a href=\"profile.php\"><span class=\"glyphicon glyphicon-user\"></span> Welcome, ".$_SESSION['user']."</a></li>";
@@ -49,10 +50,11 @@ require_once('config/db.php');
 <div class="container">
 
 <?php
+// Error message with th redirect
 if(isset($_SESSION['err']) && $_SESSION['err'] != '')
 echo "
-<div class=\"alert alert-danger\">
-  ".$_SESSION['err']."
-</div>";
+    <div class=\"alert alert-danger\">
+    ".$_SESSION['err']."
+    </div>";
 unset($_SESSION['err']);
 ?>

@@ -9,6 +9,7 @@ $query = $conn->query($statement);
 $query->setFetchMode(PDO::FETCH_ASSOC);
 $row = $query->fetchAll()[0];
 
+// Basic configuration
 $target_dir = "../uploads/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
