@@ -1,0 +1,21 @@
+.theimg {
+    width: 100%!important;
+    transition-delay: 3s;
+    transition: 0.4s all ease-in-out;
+}
+
+.imgcont {
+    margin: 6%;
+}
+
+.imgcont:hover > img {
+    transform: scale(1.07);
+    transition: 0.16s all ease-in-out;
+}
+
+.gallery {
+    /* position: absolute; */
+    
+    max-height: 88vh;
+    overflow-y: scroll;
+}
