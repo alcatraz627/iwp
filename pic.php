@@ -2,15 +2,14 @@
 // Include the file containing the database connection code
 require_once('include/header.php');
 
-// Redirect the user to the login page if they are not logged in
-if(!isset($_SESSION['user'])) header('location: auth.php');
-
 if(!isset($_GET['id'])) redir('index.php', 'Please select a valid image');
 
 $statement = "SELECT * FROM images WHERE id='".$_GET['id']."';";
 $query = $conn->query($statement);
 $query->setFetchMode(PDO::FETCH_ASSOC);
 $img = $query->fetchAll()[0];
+
+if(!count($img)) redir('index.php', 'Record not found')
 
 ?>
 <!-- <h1 class="text-center">Browse Gallery</h1><hr> -->

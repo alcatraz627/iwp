@@ -49,7 +49,7 @@ require_once('config/db.php');
 <div class="container">
 
 <?php
-if(isset($_SESSION['err']))
+if(isset($_SESSION['err']) && $_SESSION['err'] != '')
 echo "
 <div class=\"alert alert-danger\">
   ".$_SESSION['err']."
