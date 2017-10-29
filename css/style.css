@@ -8,7 +8,7 @@
     margin: 6%;
 }
 
-.imgcont:hover > img {
+.imgcont:hover > a > img {
     transform: scale(1.07);
     transition: 0.16s all ease-in-out;
 }

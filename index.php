@@ -1,130 +1,35 @@
 <?php
 // Include the file containing the database connection code
 require_once('include/header.php');
+
 // Redirect the user to the login page if they are not logged in
 // if(!isset($_SESSION['user'])) header('location: auth.php');
+
+$statement = "SELECT * FROM images;";
+$query = $conn->query($statement);
+$query->setFetchMode(PDO::FETCH_ASSOC);
+$row = $query->fetchAll();
+
 ?>
-<div class="row gallery">
-    <div class="col-sm-4 bg-primary">
-        <div class="imgcont">
-            <img src="https://www.w3schools.com/bootstrap/paris.jpg" class="img-rounded theimg">
+<h1 class="text-center">Browse Gallery</h1><hr>
+<div class="row">
+<?php
+    foreach($row as $img)
+    {
+        // print_r($img);
+        echo "
+    <div class=\"col-sm-4\">
+        <div class=\"imgcont\">
+            <h2 class=\"text-center\">".$img['title']."</h2>
+            <a href=\"pic.php?id=".$img['id']."\" target=\"_blank\"><img src=\"uploads/".$img['id'].".jpg\" class=\"img-rounded theimg\"></a>
+            <br><br>
+            <p>".$img['description']."</p>
+            <hr>
         </div>
-    </div>
-    <div class="col-sm-4 bg-info">
-        <div class="imgcont">
-            <img src="https://www.w3schools.com/bootstrap/paris.jpg" class="img-rounded theimg">
-        </div>
-    </div>
-    <div class="col-sm-4 bg-danger">
-        <div class="imgcont">
-            <img src="https://www.w3schools.com/bootstrap/paris.jpg" class="img-rounded theimg">
-        </div>
-    </div>
-    <div class="col-sm-4 bg-info">
-        <div class="imgcont">
-            <img src="https://www.w3schools.com/bootstrap/paris.jpg" class="img-rounded theimg">
-        </div>
-    </div>
-    <div class="col-sm-4 bg-danger">
-        <div class="imgcont">
-            <img src="https://www.w3schools.com/bootstrap/paris.jpg" class="img-rounded theimg">
-        </div>
-    </div>
-    <div class="col-sm-4 bg-primary">
-        <div class="imgcont">
-            <img src="https://www.w3schools.com/bootstrap/paris.jpg" class="img-rounded theimg">
-        </div>
-    </div>
-    <div class="col-sm-4 bg-primary">
-        <div class="imgcont">
-            <img src="https://www.w3schools.com/bootstrap/paris.jpg" class="img-rounded theimg">
-        </div>
-    </div>
-    <div class="col-sm-4 bg-info">
-        <div class="imgcont">
-            <img src="https://www.w3schools.com/bootstrap/paris.jpg" class="img-rounded theimg">
-        </div>
-    </div>
-    <div class="col-sm-4 bg-danger">
-        <div class="imgcont">
-            <img src="https://www.w3schools.com/bootstrap/paris.jpg" class="img-rounded theimg">
-        </div>
-    </div>
-    <div class="col-sm-4 bg-info">
-        <div class="imgcont">
-            <img src="https://www.w3schools.com/bootstrap/paris.jpg" class="img-rounded theimg">
-        </div>
-    </div>
-    <div class="col-sm-4 bg-danger">
-        <div class="imgcont">
-            <img src="https://www.w3schools.com/bootstrap/paris.jpg" class="img-rounded theimg">
-        </div>
-    </div>
-    <div class="col-sm-4 bg-primary">
-        <div class="imgcont">
-            <img src="https://www.w3schools.com/bootstrap/paris.jpg" class="img-rounded theimg">
-        </div>
-    </div>
-    <div class="col-sm-4 bg-primary">
-        <div class="imgcont">
-            <img src="https://www.w3schools.com/bootstrap/paris.jpg" class="img-rounded theimg">
-        </div>
-    </div>
-    <div class="col-sm-4 bg-info">
-        <div class="imgcont">
-            <img src="https://www.w3schools.com/bootstrap/paris.jpg" class="img-rounded theimg">
-        </div>
-    </div>
-    <div class="col-sm-4 bg-danger">
-        <div class="imgcont">
-            <img src="https://www.w3schools.com/bootstrap/paris.jpg" class="img-rounded theimg">
-        </div>
-    </div>
-    <div class="col-sm-4 bg-info">
-        <div class="imgcont">
-            <img src="https://www.w3schools.com/bootstrap/paris.jpg" class="img-rounded theimg">
-        </div>
-    </div>
-    <div class="col-sm-4 bg-danger">
-        <div class="imgcont">
-            <img src="https://www.w3schools.com/bootstrap/paris.jpg" class="img-rounded theimg">
-        </div>
-    </div>
-    <div class="col-sm-4 bg-primary">
-        <div class="imgcont">
-            <img src="https://www.w3schools.com/bootstrap/paris.jpg" class="img-rounded theimg">
-        </div>
-    </div>
-    <div class="col-sm-4 bg-primary">
-        <div class="imgcont">
-            <img src="https://www.w3schools.com/bootstrap/paris.jpg" class="img-rounded theimg">
-        </div>
-    </div>
-    <div class="col-sm-4 bg-info">
-        <div class="imgcont">
-            <img src="https://www.w3schools.com/bootstrap/paris.jpg" class="img-rounded theimg">
-        </div>
-    </div>
-    <div class="col-sm-4 bg-danger">
-        <div class="imgcont">
-            <img src="https://www.w3schools.com/bootstrap/paris.jpg" class="img-rounded theimg">
-        </div>
-    </div>
-    <div class="col-sm-4 bg-info">
-        <div class="imgcont">
-            <img src="https://www.w3schools.com/bootstrap/paris.jpg" class="img-rounded theimg">
-        </div>
-    </div>
-    <div class="col-sm-4 bg-danger">
-        <div class="imgcont">
-            <img src="https://www.w3schools.com/bootstrap/paris.jpg" class="img-rounded theimg">
-        </div>
-    </div>
-    <div class="col-sm-4 bg-primary">
-        <div class="imgcont">
-            <img src="https://www.w3schools.com/bootstrap/paris.jpg" class="img-rounded theimg">
-        </div>
-    </div>
+    </div>        
+        ";
+    }
+?>
 </div>
 <?php
 // Include the file containing the database connection code

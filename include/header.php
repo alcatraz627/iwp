@@ -35,7 +35,7 @@ require_once('config/db.php');
     <?php
         if(isset($_SESSION['user']))
         {
-            echo "<li><a href=\"#\"><span class=\"glyphicon glyphicon-user\"></span> Welcome, ".$_SESSION['user']."</a></li>";
+            echo "<li><a href=\"profile.php\"><span class=\"glyphicon glyphicon-user\"></span> Welcome, ".$_SESSION['user']."</a></li>";
             echo "<li><a href=\"auth.php?logout=logout\"><span class=\"glyphicon glyphicon-log-in\"></span> Log Out</a></li>";            
         } else
         {

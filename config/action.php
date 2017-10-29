@@ -50,11 +50,4 @@ switch($_POST['actiontype']) {
         echo 'Invalid input';
 
     }
-
-    // Custom functions
-    function redir($url, $err='')
-    {
-        $_SESSION['err'] = $err;
-        header('location: '.$url);
-    }
 ?>

@@ -19,4 +19,12 @@ catch(PDOException $e)
 
 // Start the PHP session
 session_start();
+
+// Custom functions
+function redir($url, $err='')
+{
+    $_SESSION['err'] = $err;
+    header('location: '.$url);
+}
+
 ?>
