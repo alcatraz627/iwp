@@ -53,6 +53,7 @@ if ($uploadOk == 0) {
 } else {
     // $target_file = $target_dir.((int)$row['count(*)']+1).'.'.$imageFileType;
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+        chmod($target_path, 0755);
         echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.<br>";
     } else {
         echo "Sorry, there was an error uploading your file.<br>";
